@@ -1,7 +1,8 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var MODIS = ee.ImageCollection("MODIS/061/MOD09Q1"),
-    bb = ee.FeatureCollection("projects/ee-geofield-ua/assets/Shapefiles/Admin/BangladeshBB");
+var MODIS = ee.ImageCollection("MODIS/061/MOD09Q1");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
+var bb = ee.FeatureCollection("projects/ee-bangladesh-rice-mapping/assets/Shapefiles/Admin/BangladeshBB");
+
 var scale = 231.65635826395828
 
 var means_centered = function (Image, region, scale) {
