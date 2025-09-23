@@ -1,9 +1,8 @@
-/**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var bb = ee.FeatureCollection("projects/ee-geofield-ua/assets/Shapefiles/Admin/BangladeshBB");
-/***** End of imports. If edited, may not auto-convert in the playground. *****/
+var bb = ee.FeatureCollection("projects/ee-bangladesh-rice-mapping/assets/Shapefiles/Admin/BangladeshBB");
 
-var ImageData = require("users/bobgiezi/geofield-ua:Helpers/CofactorsForYearAsImage")
-var TableData = require("users/bobgiezi/geofield-ua:Helpers/ImagesToTableMergeRice")
+
+var ImageData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/CofactorsForYearAsImage")
+var TableData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/ImagesToTableMergeRice")
 
 var riceData = TableData.dataSet
 
