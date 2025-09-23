@@ -1,0 +1,51 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var MODIS = ee.ImageCollection("MODIS/061/MOD09Q1"),
+    BangladeshRice = ee.FeatureCollection("projects/ee-geofield-ua/assets/Shapefiles/GroundTruth/BangladeshRiceDataPoints");
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
+var imageData = require("users/bobgiezi/geofield-ua:Helpers/CofactorsForYearAsImage")
+var additionalData = require("users/bobgiezi/geofield-ua:Helpers/IRRIbangladesh_data_2010")
+
+// Find all years in rice data
+var years = BangladeshRice.distinct('Year').aggregate_array('Year')
+
+
+// define function to get rice for year
+var getDataForYear = function(Year){
+  // only select data that is for year
+  var dataSubset = BangladeshRice.filter(ee.Filter.eq('Year', Year))
+
+  // get image for year
+  var allvals = imageData.getImagesForYear(Year)
+  
+  // get image values at data points
+  var sampledData = allvals.sampleRegions(
+    {
+      collection: dataSubset,
+      scale: 250,
+      geometries: true,
+      tileScale: 5
+    }
+  )
+  
+  return ee.FeatureCollection(sampledData)
+}
+ 
+
+// get additional data for 2010
+var image2010 = imageData.getImagesForYear(2010)
+
+var sample2010 = image2010.sampleRegions
+  ({
+    collection: additionalData.data,
+    scale: 250,
+    geometries: true,
+    tileScale: 5
+  })
+
+
+// sample all years
+var dataSet = ee.FeatureCollection(years.map(getDataForYear)).flatten()
+// merge with 2010 data
+dataSet = dataSet.merge(sample2010)
+
+exports.dataSet = dataSet
