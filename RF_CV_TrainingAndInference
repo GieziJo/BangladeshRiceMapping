@@ -62,7 +62,7 @@ for(var year = 2002; year < 2023; year++){
     image: classification,
     scale: 250,
     region: bb.geometry(),
-    assetId: 'projects/ee-geofield-ua/assets/InferredData/'+year,
+    assetId: 'projects/BangladeshRiceMapping/assets/InferredData/'+year,
     description: year
   })
 }
