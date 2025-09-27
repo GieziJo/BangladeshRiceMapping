@@ -2,7 +2,7 @@
 var fabdem = ee.ImageCollection("projects/sat-io/open-datasets/FABDEM"),
     EVI = ee.ImageCollection("MODIS/061/MOD13Q1");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
-var modisData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/MODISDataPCA")
+var modisData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/MODISDataPCA.js")
 
 var scale = EVI.first().projection().nominalScale().getInfo()
 var crs = EVI.first().projection().crs().getInfo()

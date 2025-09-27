@@ -9,8 +9,8 @@ var BangladeshBoundaries = ee.FeatureCollection("projects/ee-bangladesh-rice-map
 
 Map.centerObject(bb)
 
-var ImageData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/CofactorsForYearAsImage")
-var TableData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/ImagesToTableMergeRice")
+var ImageData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/CofactorsForYearAsImage.js")
+var TableData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/ImagesToTableMergeRice.js")
 
 var riceData = TableData.dataSet
 
