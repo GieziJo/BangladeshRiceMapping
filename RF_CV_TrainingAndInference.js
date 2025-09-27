@@ -1,8 +1,8 @@
 var bb = ee.FeatureCollection("projects/ee-bangladesh-rice-mapping/assets/Shapefiles/Admin/BangladeshBB");
 
 
-var ImageData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/CofactorsForYearAsImage")
-var TableData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/ImagesToTableMergeRice")
+var ImageData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/CofactorsForYearAsImage.js")
+var TableData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/ImagesToTableMergeRice.js")
 
 var riceData = TableData.dataSet
 
