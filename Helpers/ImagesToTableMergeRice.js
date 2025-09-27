@@ -3,8 +3,8 @@ var MODIS = ee.ImageCollection("MODIS/061/MOD09Q1");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 var BangladeshRice = ee.FeatureCollection("projects/ee-bangladesh-rice-mapping/assets/Shapefiles/GroundTruth/BangladeshRiceDataPoints");
 
-var imageData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/CofactorsForYearAsImage")
-var additionalData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/IRRIbangladesh_data_2010")
+var imageData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/CofactorsForYearAsImage.js")
+var additionalData = require("users/bobgiezi/BangladeshRiceMapping:Helpers/IRRIbangladesh_data_2010.js")
 
 // Find all years in rice data
 var years = BangladeshRice.distinct('Year').aggregate_array('Year')
